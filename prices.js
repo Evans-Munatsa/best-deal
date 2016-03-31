@@ -1,2 +1,14 @@
-var array = ["1 for R3", "2 for R7", "3 for R10", "5 for R14.50"]
-// console.log(parseFloat(array));
+var fs = require('fs') 
+
+
+var str = "1 for R3, 2 for R7, 3 for R10, 5 for R14.50";
+var temp = new Array();
+temp = str.split(",");
+
+for (a in temp ) {
+    temp[a] = parseInt(temp[a]);
+}
+
+console.log(temp)
+
+
