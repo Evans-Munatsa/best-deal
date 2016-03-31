@@ -6,9 +6,7 @@ var temp = new Array();
 temp = str.split(",");
 
 for (a in temp ) {
-    temp[a] = parseInt(temp[a]);
+    temp[a] = parseFloat(temp[a]);
 }
 
 console.log(temp)
-
-
