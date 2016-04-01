@@ -7,5 +7,15 @@ splitter.forEach(function(str) {
     omega.push(str.split(" for R"));
 });
 
-//create a loop that calculates the total amounts for a single product
-console.log(omega);
+//loop that calculates the total amounts for a single product
+omega.forEach(function(str) {
+  var price = str[1];
+  var quantity = str[0];
+
+  var division = price/quantity;
+  var n = division.toFixed(2)
+  console.log(n)
+});
+
+
+// console.log(omega);
