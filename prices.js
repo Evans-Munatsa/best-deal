@@ -1,5 +1,3 @@
-var fs = require('fs');
-
 function avo() {
     var str = "1 for R3, 2 for R7, 3 for R10, 5 for R14.50";
 
@@ -18,19 +16,27 @@ function avo() {
         var price = str[1];
         var quantity = str[0];
 
-        var division = price / quantity;
-        money.push(division.toFixed(2))
+        var division = Number((price / quantity).toFixed(2));
+        //         var ans = Number(division.toFixed(2));
+        money.push(division);
+    });
+
+    var sorted = money.sort();
+    var sum = 0;
+
+    sorted.forEach(function(total) {
+        sum += total;
     });
 
     var min = Math.min.apply(null, money);
     var max = Math.max.apply(null, money);
-    var average = max - min;
+    //     var average = max - min;
 
     console.log(omega);
     console.log(money);
     console.log(min);
     console.log(max);
-    console.log(average);
+    console.log(sum);
 }
 
-avo()
+avo();
