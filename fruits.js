@@ -1,55 +1,52 @@
-var fruits = {
-    "woolingsworth": {
-        "apples": 4,
-        "bananas": 3,
-        "oranges": 12
-    },
+exports.objects = function(fruits) {
+    var orangeSellers = [];
 
-    "chockers": {
-        "bananas": 2,
-        "apples": 5,
-        "oranges": 4
-    },
-
-    "pickle pay": {
-        "bananas": 4,
-        "oranges": 7
-    },
-
-    "shopwrong": {
-        "apples": 2,
-        "bananas": 3
-    },
-
-    "kwakspar": {
-        "oranges": 9,
-        "apples": 4
-    }
-};
-console.log(fruits);
-
-var orangeSellers = [];
-
-for (var shop in fruits) {
-    if (fruits[shop].hasOwnProperty("oranges")) {
-        orangeSellers.push({
-            Shop: shop,
-            price: fruits[shop].oranges
-        });
-        console.log(orangeSellers);
-
-        var oranges = [];
-        for (var n = 0; n < orangeSellers.length; n++) {
-            oranges.push(orangeSellers[n].price);
+    for (var shop in fruits) {
+        if (fruits[shop].hasOwnProperty("oranges")) {
+            orangeSellers.push({
+                Shop: shop,
+                price: fruits[shop].oranges
+            });
         }
 
-        for (var i = 0; i < 1; i++) {
-            oranges.sort(function(a, b) {
-                return a.price - b.price;
+    }
+    console.log(orangeSellers);
+    return orangeSellers;
+}
+
+
+//returns the cheapest oranges
+exports.cheapest = function(cheap) {
+    var oranges = [];
+    for (var n = 0; n < cheap.length; n++) {
+        oranges.push(cheap[n].price);
+    }
+
+    for (var i = 0; i < 1; i++) {
+        oranges.sort(function(a, b) {
+            return a.price - b.price;
+        });
+    }
+    console.log(oranges[1]);
+    return oranges[1];
+}
+
+//returns the list of apples in acsending order
+exports.apples_list = function(fruits) {
+    var appleStore = [];
+
+    for (var shop in fruits) {
+        if (fruits[shop].hasOwnProperty("apples")) {
+            appleStore.push({
+                Shop: shop,
+                price: fruits[shop].apples
             });
         }
     }
-}
 
-// console.log(oranges[0])
-console.log(oranges[1])
+    appleStore.sort(function(a, b) {
+        return parseFloat(a.price) - parseFloat(b.price);
+    });
+    console.log(appleStore);
+    return appleStore
+}
