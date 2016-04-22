@@ -1,58 +1,55 @@
-var fs = require('fs');
+var fruits = {
+    "woolingsworth": {
+        "apples": 4,
+        "bananas": 3,
+        "oranges": 12
+    },
 
-//var shopDeals = require('./fruition');
+    "chockers": {
+        "bananas": 2,
+        "apples": 5,
+        "oranges": 4
+    },
 
+    "pickle pay": {
+        "bananas": 4,
+        "oranges": 7
+    },
 
-// var shopDeals = fs.readFileSync("fruition.json");
-// shopDeals = JSON.parse(shopDeals);
-// "{}" vs {}
+    "shopwrong": {
+        "apples": 2,
+        "bananas": 3
+    },
 
-
-
-
-
-var shopDeals = {
-  "woolingsworth": {
-    "apples": 4,
-    "bananas": 3,
-    "oranges": 12
-  },
-
-  "chockers": {
-    "bananas": 2,
-    "apples": 5,
-    "oranges": 4
-  },
-
-  "pickle pay": {
-    "bananas": 4,
-    "oranges": 7
-  },
-
-  "shopwrong": {
-    "apples": 2,
-    "bananas": 3
-  },
-
-  "kwakspar": {
-    "oranges": 9,
-    "apples": 4
-  }
+    "kwakspar": {
+        "oranges": 9,
+        "apples": 4
+    }
 };
+console.log(fruits);
 
+var orangeSellers = [];
 
-//console.log("Output shopDeals : \n" + JSON.stringify(shopDeals["shopwrong"]));
+for (var shop in fruits) {
+    if (fruits[shop].hasOwnProperty("oranges")) {
+        orangeSellers.push({
+            Shop: shop,
+            price: fruits[shop].oranges
+        });
+        console.log(orangeSellers);
 
-for(var shop in shopDeals){
-	console.log(shop);
-	console.log(shopDeals[shop]);
+        var oranges = [];
+        for (var n = 0; n < orangeSellers.length; n++) {
+            oranges.push(orangeSellers[n].price);
+        }
+
+        for (var i = 0; i < 1; i++) {
+            oranges.sort(function(a, b) {
+                return a.price - b.price;
+            });
+        }
+    }
 }
 
-// var json_data = [];
-// // var splitting = json_data.split(',');
-// json_data.push(content);
-// // console.log(splitting);
-// console.log("Output Content : \n" + json_data)
-
-
-//create an array of the json file and print out specific info needed
+// console.log(oranges[0])
+console.log(oranges[1])
