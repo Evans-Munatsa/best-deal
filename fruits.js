@@ -10,7 +10,7 @@ exports.objects = function(fruits) {
         }
 
     }
-    // console.log(orangeSellers);
+    console.log(orangeSellers);
     return orangeSellers;
 }
 
@@ -47,7 +47,7 @@ exports.ascending = function(fruits) {
     appleStore.sort(function(a, b) {
         return parseFloat(a.price) - parseFloat(b.price);
     });
-    // console.log(appleStore);
+    console.log(appleStore);
     return appleStore
 }
 
@@ -67,35 +67,67 @@ exports.descending = function(fruits) {
     appleStore.sort(function(a, b) {
         return parseFloat(b.price) - parseFloat(a.price);
     });
-    // console.log(appleStore);
+    console.log(appleStore);
     return appleStore
 }
 
 exports.cheapest = function(food) {
     var fruits = [];
-  var price = 0;
-  var cheap = "";
-  for (var shops in food) {
-    for (var fruit in food[shops]) {
-        fruits.push(fruit);
-      }
-  }
+    var price = 0;
+    var cheap = "";
+    for (var shops in food) {
+        for (var fruit in food[shops]) {
+            fruits.push(fruit);
+        }
+    }
 
-  for (x = 0; x < fruits.length; x++) {
-    var total = 0;
-    var count = 0;
-    for (var Shops in food) {
-      if (food[Shops].hasOwnProperty(fruits[x])) {
-        total += food[Shops][fruits[x]];
-        count++;
-      }
+    for (x = 0; x < fruits.length; x++) {
+        var total = 0;
+        var count = 0;
+        for (var Shops in food) {
+            if (food[Shops].hasOwnProperty(fruits[x])) {
+                total += food[Shops][fruits[x]];
+                count++;
+            }
+        }
+        var averagePrice = total / count;
+        if ((averagePrice < price) || price === 0) {
+            price = averagePrice;
+            cheap = fruits[x];
+        }
     }
-    var averagePrice = total / count;
-    if ((averagePrice < price) || price === 0) {
-      price = averagePrice;
-      cheap = fruits[x];
+    console.log(cheap);
+    return cheap;
+}
+
+exports.cheap_seller = function(fruits) {
+    var minimumPrice = 0;
+    var cheapest = "";
+    for (var shop in fruits) {
+        for (var fruit in fruits[shop]) {
+            if (minimumPrice === fruits[shop][fruit]) {
+                cheapest = cheapest + " and " + shop;
+            }
+            if ((minimumPrice > fruits[shop][fruit]) || (minimumPrice === 0)) {
+                minimumPrice = fruits[shop][fruit];
+                cheapest = shop;
+            }
+        }
     }
-  }
-  // console.log(cheap);
-  return cheap;
+    console.log(cheapest);
+    return cheapest;
+}
+
+exports.orange_shops = function(fruits) {
+    var orangeSellers = [];
+
+    for (var shops in fruits) {
+        if (fruits[shops].hasOwnProperty("oranges")) {
+            orangeSellers.push(
+                shops
+            );
+        }
+    }
+    console.log(orangeSellers);
+    return orangeSellers;
 }

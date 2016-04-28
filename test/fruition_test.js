@@ -64,7 +64,7 @@ describe("tests the fruition function", function() {
             price: 9,
             Shop: "kwakspar"
         }])
-        assert.equal(result, 4);
+        assert.equal(result, "chockers: 4");
     })
 
     it("returns apples in ascending order by price", function() {
@@ -101,8 +101,19 @@ describe("tests the fruition function", function() {
         }])
     })
 
-    it("returns the cheapest fruit", function(){
+    it("returns the cheapest fruit", function() {
         var result = fruits.cheapest(list);
         assert.equal(result, "bananas");
+    })
+
+
+    it("returns the seller of the fruit with the lowest price", function() {
+        var result = fruits.cheap_seller(list);
+        assert.equal(result, "chockers and shopwrong");
+    })
+
+    it("returns the shops that sell oranges", function() {
+        var result = fruits.orange_shops(list);
+        assert.deepEqual(result, ["woolingsworth", "chockers", "pickle pay", "kwakspar"]);
     })
 })
