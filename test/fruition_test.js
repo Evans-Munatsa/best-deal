@@ -64,7 +64,7 @@ describe("tests the fruition function", function() {
             price: 9,
             Shop: "kwakspar"
         }])
-        assert.equal(result, "chockers: 4");
+        assert.equal(result, "chockers");
     })
 
     it("returns apples in ascending order by price", function() {
@@ -102,7 +102,7 @@ describe("tests the fruition function", function() {
     })
 
     it("returns the cheapest fruit", function() {
-        var result = fruits.cheapest(list);
+        var result = fruits.flu(list);
         assert.equal(result, "bananas");
     })
 

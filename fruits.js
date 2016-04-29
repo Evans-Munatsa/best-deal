@@ -19,14 +19,9 @@ exports.objects = function(fruits) {
 exports.cheapest = function(cheap) {
     var oranges = [];
     for (var n = 0; n < cheap.length; n++) {
-        oranges.push(cheap[n].price);
+        oranges.push(cheap[n].Shop);
     }
 
-    for (var i = 0; i < 1; i++) {
-        oranges.sort(function(a, b) {
-            return a.price - b.price;
-        });
-    }
     console.log(oranges[1]);
     return oranges[1];
 }
@@ -71,7 +66,7 @@ exports.descending = function(fruits) {
     return appleStore
 }
 
-exports.cheapest = function(food) {
+exports.flu = function(food) {
     var fruits = [];
     var price = 0;
     var cheap = "";
